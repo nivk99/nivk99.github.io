@@ -288,9 +288,138 @@
   }
 }
 </style>
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .hamburger span {
+    background: white;
+    height: 4px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 2px;
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-nav a {
+    padding: 12px;
+    border-bottom: 1px solid #444;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    nav .links {
+      display: none;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+  }
+</style>
+
+
+<style>
+  .links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+    }
+  }
+</style>
+
+
+<style>
+  @media (max-width: 768px) {
+    nav .nav-row {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    nav .nav-logo {
+      order: 2;
+    }
+
+    nav .hamburger {
+      order: 1;
+    }
+
+    nav .links {
+      display: none;
+    }
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+</style>
+
 </head>
 <body>
-<nav style="background-color:#4d4c4c; padding:10px; text-align:center;"><div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 10px;"><img alt="לוגו נינג'ה" src="logo.png" style="height: 60px;"/><div style="display: flex; gap: 25px; align-items: center; direction: rtl;"><a href="#services" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; margin-right: 15px;">שירותים</a><a href="#about" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; margin-right: 15px;">אודות</a><a href="gallery.html" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; margin-right: 15px;">פרויקטים</a><a href="#contact" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; margin-right: 15px;">צור קשר</a><a href="tel:0506335366" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px; margin-right: 15px;">📞 0506335366</a></div></div></nav>
+
+
+
+
+
+<nav style="background-color:#4d4c4c; padding:10px;">
+  <div class="nav-row">
+    <img alt="לוגו נינג'ה" src="logo.png" style="height: 60px;" class="nav-logo" />
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="links">
+      <a href="#services">שירותים</a>
+      <a href="#about">אודות</a>
+      <a href="gallery.html">פרויקטים</a>
+      <a href="#contact">צור קשר</a>
+      <a href="tel:0506335366">📞 0506335366</a>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileMenu">
+    <a href="#services" onclick="toggleMenu()">שירותים</a>
+    <a href="#about" onclick="toggleMenu()">אודות</a>
+    <a href="gallery.html" onclick="toggleMenu()">פרויקטים</a>
+    <a href="#contact" onclick="toggleMenu()">צור קשר</a>
+    <a href="tel:0506335366" onclick="toggleMenu()">📞 0506335366</a>
+  </div>
+</nav>
+
+
+
+
+
 
 
 
@@ -363,5 +492,12 @@
 <a href="tel:0501234567" title="התקשר עכשיו"><i class="fas fa-phone"></i></a>
 <a href="mailto:ahiaamosis@gmail.com?subject=פנייה%20מהאתר%20נינג'ה%20עבודות%20בגובה&amp;body=שלום%20אחיה%2C%20אני%20מעוניין%20לקבל%20מידע%20נוסף%20על%20השירותים%20שלכם." title="שלח מייל"><i class="fas fa-envelope"></i></a>
 </div>
-<footer style="text-align: center; padding: 20px; background-color: #eeeeee; color: #555; margin-top: 40px; font-size: 14px;">© 2025 נינג'ה עבודות בגובה | אחיה עמוסי | 050-6335366 | ahiaamosis@gmail.com</footer></body>
+<footer style="text-align: center; padding: 20px; background-color: #eeeeee; color: #555; margin-top: 40px; font-size: 14px;">© 2025 נינג'ה עבודות בגובה | אחיה עמוסי | 050-6335366 | ahiaamosis@gmail.com</footer>
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+</script>
+
+</body>
 </html>
