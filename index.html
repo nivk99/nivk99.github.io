@@ -1,23 +1,45 @@
 <!DOCTYPE html>
-
 <html dir="rtl" lang="he">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
-<title>נינג'ה עבודות בגובה</title>
-<style>
+  <title>נינג'ה עבודות בגובה</title>
+
+  <style>
     body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  direction: rtl;
-}
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+
+    /* נגישות: דילוג לתוכן */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      right: 10px;
+      background: #000;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      z-index: 2000;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* נגישות: פוקוס ברור למקלדת */
+    a:focus, button:focus, input:focus, textarea:focus {
+      outline: 3px solid #ff6600;
+      outline-offset: 3px;
+    }
 
     nav {
       background-color: #1a1a1a;
@@ -94,27 +116,28 @@
       transition: background 0.3s ease;
     }
 
-    .floating-buttons {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-.floating-buttons a {
-  background: #00c853;
-  color: white;
-  padding: 12px;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
     .cta:hover {
       background-color: #e65c00;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .floating-buttons a {
+      background: #00c853;
+      color: white;
+      padding: 12px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
     footer {
@@ -176,21 +199,19 @@
       min-height: 100px;
     }
 
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-@media (max-width: 600px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-    font-size: 18px;
-  }
-}
-
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 18px;
+      }
+    }
 
     nav {
       background-color: #1a1a1a;
@@ -235,269 +256,437 @@
       }
     }
 
+    /* רספונסיביות כללית למובייל */
+    @media (max-width: 768px) {
+      nav div {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
 
-/* רספונסיביות כללית למובייל */
-@media (max-width: 768px) {
-  nav div {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+      nav a {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+      }
 
-  nav a {
-    margin-right: 0 !important;
-    margin-bottom: 10px;
-  }
+      header h1 {
+        font-size: 28px !important;
+      }
 
-  header h1 {
-    font-size: 28px !important;
-  }
+      header h2 {
+        font-size: 22px !important;
+      }
 
-  header h2 {
-    font-size: 22px !important;
-  }
+      header p {
+        font-size: 16px !important;
+      }
 
-  header p {
-    font-size: 16px !important;
-  }
+      section h2 {
+        font-size: 24px !important;
+      }
 
-  section h2 {
-    font-size: 24px !important;
-  }
+      section p {
+        font-size: 16px !important;
+      }
 
-  section p {
-    font-size: 16px !important;
-  }
+      form {
+        width: 100% !important;
+      }
 
-  form {
-    width: 100% !important;
-  }
+      form input, form textarea, form button {
+        font-size: 16px !important;
+      }
 
-  form input, form textarea, form button {
-    font-size: 16px !important;
-  }
+      .service-card, .grid, .contact-cards, .feature-box {
+        width: 100% !important;
+        flex-direction: column;
+      }
 
-  .service-card, .grid, .contact-cards, .feature-box {
-    width: 100% !important;
-    flex-direction: column;
-  }
+      .contact-cards {
+        flex-direction: column !important;
+        align-items: center;
+      }
+    }
+  </style>
 
-  .contact-cards {
-    flex-direction: column !important;
-    align-items: center;
-  }
-}
-</style>
-
-<style>
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-  }
-
-  .hamburger span {
-    background: white;
-    height: 4px;
-    width: 25px;
-    margin: 3px 0;
-    border-radius: 2px;
-  }
-
-  .mobile-nav {
-    display: none;
-    flex-direction: column;
-    background-color: #2a2a2a;
-    width: 100%;
-    text-align: center;
-  }
-
-  .mobile-nav a {
-    padding: 12px;
-    border-bottom: 1px solid #444;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
+  <style>
     .hamburger {
-      display: flex;
-    }
-
-    nav .links {
       display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px;
+      background: transparent;
+      border: none;
     }
 
-    .mobile-nav.active {
-      display: flex;
+    .hamburger span {
+      background: white;
+      height: 4px;
+      width: 25px;
+      margin: 3px 0;
+      border-radius: 2px;
+      display: block;
     }
-  }
-</style>
 
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #2a2a2a;
+      width: 100%;
+      text-align: center;
+    }
 
-<style>
-  .links {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-  }
+    .mobile-nav a {
+      padding: 12px;
+      border-bottom: 1px solid #444;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .mobile-nav.active {
+        display: flex;
+      }
+    }
+  </style>
+
+  <style>
     .links {
-      display: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
     }
-  }
-</style>
 
+    @media (max-width: 768px) {
+      .links {
+        display: none;
+      }
+    }
+  </style>
 
-<style>
-  @media (max-width: 768px) {
-    nav .nav-row {
-      flex-direction: row;
+  <style>
+    @media (max-width: 768px) {
+      nav .nav-row {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      nav .nav-logo {
+        order: 2;
+      }
+
+      nav .hamburger {
+        order: 1;
+      }
+
+      nav .links {
+        display: none;
+      }
+    }
+
+    .nav-row {
+      display: flex;
       justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+  </style>
+
+  <style>
+    .service-card {
+      border: 1px solid #003366;
+      padding: 20px;
+      width: 220px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+      border-radius: 12px;
     }
 
-    nav .nav-logo {
-      order: 2;
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
 
-    nav .hamburger {
-      order: 1;
+    .service-card img {
+      display: block;
+      margin: 0 auto 10px;
     }
 
-    nav .links {
-      display: none;
+    .service-card h3 {
+      margin: 0;
     }
-  }
-
-  .nav-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-  }
-</style>
-
+  </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">דלג לתוכן</a>
 
+  <nav style="background-color:#4d4c4c; padding:10px;">
+    <div class="nav-row">
+      <img alt="לוגו נינג'ה" src="logo.png" style="height: 60px;" class="nav-logo" />
 
+      <button class="hamburger" type="button"
+              onclick="toggleMenu()"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+              aria-label="פתח תפריט ניווט">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
 
-
-
-<nav style="background-color:#4d4c4c; padding:10px;">
-  <div class="nav-row">
-    <img alt="לוגו נינג'ה" src="logo.png" style="height: 60px;" class="nav-logo" />
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <div class="links">
+        <a href="#services">שירותים</a>
+        <a href="#about">אודות</a>
+        <a href="gallery.html">פרויקטים</a>
+        <a href="#contact">צור קשר</a>
+        <a href="tel:0506335366">📞 0506335366</a>
+      </div>
     </div>
 
-    <div class="links">
-      <a href="#services">שירותים</a>
-      <a href="#about">אודות</a>
-      <a href="gallery.html">פרויקטים</a>
-      <a href="#contact">צור קשר</a>
-      <a href="tel:0506335366">📞 0506335366</a>
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="#services" onclick="toggleMenu()">שירותים</a>
+      <a href="#about" onclick="toggleMenu()">אודות</a>
+      <a href="gallery.html" onclick="toggleMenu()">פרויקטים</a>
+      <a href="#contact" onclick="toggleMenu()">צור קשר</a>
+      <a href="tel:0506335366" onclick="toggleMenu()">📞 0506335366</a>
     </div>
+  </nav>
+
+  <header style="background: linear-gradient(to left, rgba(255,140,0,0.7), rgba(0,123,255,0.7)), url('background.png') no-repeat center center / cover; color: white; text-align: center; padding: 140px 20px 100px;">
+    <h1 style="font-size: 48px; margin-bottom: 10px;">עבודות בגובה</h1>
+    <h2 style="font-size: 40px; color: orange; margin-top: 0; margin-bottom: 20px;">מקצועיות עם Ninja</h2>
+    <p style="font-size: 20px; max-width: 700px; margin: 0 auto 30px;">שירותי עבודות בגובה מתקדמים עם דגש על בטיחות ומקצועיות ברמה הגבוהה ביותר</p>
+    <a class="cta" href="#contact" style="background-color: orange; padding: 16px 30px; font-size: 18px; font-weight: bold; border-radius: 30px; color: white; text-decoration: none; display: inline-block; margin-top: 20px;">קבל הצעת מחיר חינם</a>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 60px auto 0;">
+      <div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;">
+        <div style="font-size: 40px; margin-bottom: 10px;">👷</div>
+        <div style="font-size: 28px; font-weight: bold;">+100</div>
+        <div style="font-size: 18px;">פרויקטים הושלמו</div>
+      </div>
+
+      <div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;">
+        <div style="font-size: 40px; margin-bottom: 10px;">📍</div>
+        <div style="font-size: 28px; font-weight: bold;">+5</div>
+        <div style="font-size: 18px;">שנות ניסיון</div>
+      </div>
+
+      <div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;">
+        <div style="font-size: 40px; margin-bottom: 10px;">🛡️</div>
+        <div style="font-size: 28px; font-weight: bold;">100%</div>
+        <div style="font-size: 18px;">בטיחות מוכחת</div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="services" style="padding: 40px; text-align: center; background-color: #fdfdfd;">
+      <h2 style="font-size: 36px; color: #111; font-weight: bold; margin-bottom: 10px; text-align: center;">השירותים שלנו</h2>
+      <p style="font-size: 18px; color: #444; text-align: center; max-width: 800px; margin: auto auto 40px;">אנו מספקים מגוון רחב של שירותי עבודות בגובה עם דגש על בטיחות מקסימלית ומקצועיות ברמה הגבוהה ביותר</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: auto;">
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #333333; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">ניקוי חלונות בגובה – למשרדים, מגדלים ובתי מגורים</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">איטום קירות חיצוניים – כולל עבודות סילר, סדקים וזיפות</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">תחזוקה שוטפת למבנים ומגדלים – טיפול מונע ותיקונים</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">תליית שלטים ותאורה – כולל התקנות מסובכות בגובה רב</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">שטיפת קירות חיצוניים בלחץ מים</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">בדיקת ואחזקת גגות וקונסטרוקציות מתכת</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">איטום קירות חיצוניים</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">תחזוקה שוטפת למגדלים</div>
+        </div>
+
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div>
+          <div style="text-align: center; font-size: 16px; color: #333;">תליית שלטים</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 40px; text-align: center; background-color: #fdfdfd;">
+      <h2 style="font-size: 28px; color: #222; margin-bottom: 30px;">סוגי עבודות בגובה:</h2>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <div class="service-card">
+          <img alt="איטום גגות" src="https://img.icons8.com/ios-filled/50/000000/roofing.png"/>
+          <h3>איטום גגות</h3>
+        </div>
+
+        <div class="service-card">
+          <img alt="איטום קירות חיצוניים" src="https://img.icons8.com/ios-filled/50/000000/brick-wall.png"/>
+          <h3>איטום קירות חיצוניים</h3>
+        </div>
+
+        <div class="service-card">
+          <img alt="עבודות בסנפלינג" src="https://img.icons8.com/ios-filled/50/000000/city-buildings.png"/>
+          <h3>עבודות בסנפלינג</h3>
+        </div>
+
+        <div class="service-card">
+          <img alt="החלפת אריחים בגובה" src="https://img.icons8.com/ios-filled/50/000000/city.png"/>
+          <h3>החלפת אריחים בגובה</h3>
+        </div>
+
+        <div class="service-card">
+          <img alt="שיקום מעטפת בניין" src="https://img.icons8.com/ios-filled/50/000000/brick-wall.png"/>
+          <h3>שיקום מעטפת בניין</h3>
+        </div>
+
+        <div class="service-card">
+          <img alt="עבודות צבע" src="https://img.icons8.com/ios-filled/50/000000/roofing.png"/>
+          <h3>עבודות צבע</h3>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 40px; text-align: center; background-color: #fdfdfd;">
+      <h2 id="about" style="font-size: 28px; color: #222; margin-bottom: 30px;">אודות</h2>
+      <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">נינג'ה עבודות בגובה הוקמה מתוך שליחות לספק פתרונות איכותיים לעבודה בגובה תוך שמירה על סטנדרטים מחמירים של בטיחות ומקצועיות.</p>
+      <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">עם ניסיון של למעלה מ-5 שנים, אנו נותנים מענה לבנייני מגורים, מוסדות, משרדים ופרויקטים מיוחדים – הכול עם מגע אנושי, שירות אישי וציוד מתקדם.</p>
+      <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">הצוות שלנו מוסמך ומורשה לעבודה בגובה, ויחד איתכם נבצע כל פרויקט בצורה הטובה והבטוחה ביותר.</p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 900px; margin: 30px auto 0;">
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>צוות מקצועי ומנוסה</span></div>
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>ביטוח מקיף ומלא</span></div>
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>מחירים תחרותיים</span></div>
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>ציוד בטיחות מתקדם</span></div>
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>זמינות 24/7</span></div>
+        <div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>אחריות מלאה על העבודה</span></div>
+      </div>
+    </section>
+
+    <section id="contact" style="padding: 40px; text-align: center; background-color:#fdfdfd;">
+      <h2 style="font-size: 32px; margin-bottom: 10px; color: #222; font-weight: bold;">צור קשר</h2>
+      <p style="font-size: 18px; color: #666; margin-bottom: 40px;">נשמח לעמוד לשירותכם ולספק הצעת מחיר מותאמת אישית לפרויקט שלכם</p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; margin: auto; text-align: right;">
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+              <span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">📞</span>
+              <div><strong>טלפון</strong><br/>0506335366<br/><small>אחיה עמוסי</small></div>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+              <span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">✉️</span>
+              <div><strong>אימייל</strong><br/>ahiaamosis@gmail.com<br/><small>אחיה עמוסי</small></div>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+              <span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">⏰</span>
+              <div><strong>שעות פעילות</strong><br/>ראשון - חמישי: 07:00 - 18:00<br/><small>זמינות 24/7 ללקוחות חירום</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex: 1 1 400px;">
+          <form action="https://formspree.io/f/mldldjqa" method="POST" style="display: grid; gap: 16px;">
+            <label for="fullName">שם מלא</label>
+            <input id="fullName" name="name" placeholder="הכנס את שמך המלא" required
+                   style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="text"/>
+
+            <label for="phone">טלפון</label>
+            <input id="phone" name="phone" placeholder="050-123-4567" required
+                   style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="tel"/>
+
+            <label for="email">אימייל</label>
+            <input id="email" name="email" placeholder="example@email.com" required
+                   style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="email"/>
+
+            <label for="serviceType">סוג השירות</label>
+            <input id="serviceType" name="service_type" placeholder="צביעת חזית, עבודות בנייה, תחזוקה..." required
+                   style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="text"/>
+
+            <label for="details">פרטים נוספים</label>
+            <textarea id="details" name="details" placeholder="תאר את הפרויקט שלך - גובה המבנה, סוג העבודה, לוח זמנים..." required
+                      style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; min-height: 100px;"></textarea>
+
+            <button style="padding: 14px; background-color: #007bff; color: white; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;" type="submit">
+              שלח בקשה
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-buttons">
+    <a aria-label="שלח הודעת וואטסאפ" href="https://wa.me/972506335366?text=שלום%20אחיה%2C%20אני%20מעוניין%20בשירותי%20עבודות%20בגובה" target="_blank" title="שלח וואטסאפ">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a aria-label="התקשר עכשיו" href="tel:0506335366" title="התקשר עכשיו">
+      <i class="fas fa-phone" aria-hidden="true"></i>
+    </a>
+    <a aria-label="שלח אימייל" href="mailto:ahiaamosis@gmail.com?subject=פנייה%20מהאתר%20נינג'ה%20עבודות%20בגובה&body=שלום%20אחיה%2C%20אני%20מעוניין%20לקבל%20מידע%20נוסף%20על%20השירותים%20שלכם." title="שלח מייל">
+      <i class="fas fa-envelope" aria-hidden="true"></i>
+    </a>
   </div>
 
-  <div class="mobile-nav" id="mobileMenu">
-    <a href="#services" onclick="toggleMenu()">שירותים</a>
-    <a href="#about" onclick="toggleMenu()">אודות</a>
-    <a href="gallery.html" onclick="toggleMenu()">פרויקטים</a>
-    <a href="#contact" onclick="toggleMenu()">צור קשר</a>
-    <a href="tel:0506335366" onclick="toggleMenu()">📞 0506335366</a>
-  </div>
-</nav>
+  <footer style="text-align: center; padding: 20px; background-color: #eeeeee; color: #555; margin-top: 40px; font-size: 14px;">
+    © 2025 נינג'ה עבודות בגובה | אחיה עמוסי | 050-6335366 | ahiaamosis@gmail.com
+  </footer>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.hamburger');
 
+      menu.classList.toggle('active');
+      const isOpen = menu.classList.contains('active');
 
+      if (btn) {
+        btn.setAttribute('aria-expanded', String(isOpen));
+        btn.setAttribute('aria-label', isOpen ? 'סגור תפריט ניווט' : 'פתח תפריט ניווט');
+      }
+    }
+  </script>
 
-
-
-
-
-<header style="background: linear-gradient(to left, rgba(255,140,0,0.7), rgba(0,123,255,0.7)), url('background.png') no-repeat center center / cover; color: white; text-align: center; padding: 140px 20px 100px;"><h1 style="font-size: 48px; margin-bottom: 10px;">עבודות בגובה</h1><h2 style="font-size: 40px; color: orange; margin-top: 0; margin-bottom: 20px;">מקצועיות עם Ninja</h2><p style="font-size: 20px; max-width: 700px; margin: 0 auto 30px;">שירותי עבודות בגובה מתקדמים עם דגש על בטיחות ומקצועיות ברמה הגבוהה ביותר</p><a class="cta" href="#contact" style="background-color: orange; padding: 16px 30px; font-size: 18px; font-weight: bold; border-radius: 30px; color: white; text-decoration: none; display: inline-block; margin-top: 20px;">קבל הצעת מחיר חינם</a><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 60px auto 0;"><div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;"><div style="font-size: 40px; margin-bottom: 10px;">👷</div><div style="font-size: 28px; font-weight: bold;">+100</div><div style="font-size: 18px;">פרויקטים הושלמו</div></div><div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;"><div style="font-size: 40px; margin-bottom: 10px;">📍</div><div style="font-size: 28px; font-weight: bold;">+5</div><div style="font-size: 18px;">שנות ניסיון</div></div><div style="flex: 1 1 200px; padding: 20px; color: white; text-shadow: 1px 1px 2px black;"><div style="font-size: 40px; margin-bottom: 10px;">🛡️</div><div style="font-size: 28px; font-weight: bold;">100%</div><div style="font-size: 18px;">בטיחות מוכחת</div></div></div></header>
-<section id="services" style="padding: 40px; text-align: center; background-color: #fdfdfd;"><h2 style="font-size: 36px; color: #111; font-weight: bold; margin-bottom: 10px; text-align: center;">השירותים שלנו</h2><p style="font-size: 18px; color: #444; text-align: center; max-width: 800px; margin: auto auto 40px;">אנו מספקים מגוון רחב של שירותי עבודות בגובה עם דגש על בטיחות מקסימלית ומקצועיות ברמה הגבוהה ביותר</p>
-
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: auto;"><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #333333; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">ניקוי חלונות בגובה – למשרדים, מגדלים ובתי מגורים</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">איטום קירות חיצוניים – כולל עבודות סילר, סדקים וזיפות</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">תחזוקה שוטפת למבנים ומגדלים – טיפול מונע ותיקונים</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">תליית שלטים ותאורה – כולל התקנות מסובכות בגובה רב</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">שטיפת קירות חיצוניים בלחץ מים</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">בדיקת ואחזקת גגות וקונסטרוקציות מתכת</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">איטום קירות חיצוניים</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">תחזוקה שוטפת למגדלים</div></div><div style="border: 1px solid #ddd; border-radius: 12px; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div style="font-size: 30px; color: #007bff; margin-bottom: 10px; text-align: center;">✔️</div><div style="text-align: center; font-size: 16px; color: #333;">תליית שלטים</div></div></div></section>
-<style>
-  .service-card {
-    border: 1px solid #003366;
-    padding: 20px;
-    width: 220px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  }
-</style>
-<style>
-  .service-card {
-    border: 1px solid #003366;
-    padding: 20px;
-    width: 220px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  }
-</style>
-<section style="padding: 40px; text-align: center; background-color: #fdfdfd;">
-<h2 style="font-size: 28px; color: #222; margin-bottom: 30px;">סוגי עבודות בגובה:</h2>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-<div class="service-card">
-<img alt="איטום גגות" src="https://img.icons8.com/ios-filled/50/000000/roofing.png"/>
-<h3>איטום גגות</h3>
-</div>
-<div class="service-card">
-<img alt="איטום קירות חיצוניים" src="https://img.icons8.com/ios-filled/50/000000/brick-wall.png"/>
-<h3>איטום קירות חיצוניים</h3>
-</div>
-<div class="service-card">
-<img alt="עבודות בסנפלינג" src="https://img.icons8.com/ios-filled/50/000000/city-buildings.png"/>
-<h3>עבודות בסנפלינג</h3>
-</div>
-<div class="service-card">
-<img alt="החלפת" src="https://img.icons8.com/ios-filled/50/000000/city.png" אריחים="" בגובה"=""/>
-<h3>החלפת אריחים בגובה</h3>
-</div>
-<div class="service-card">
-<img alt="שיקום מעטפת בניין" src="https://img.icons8.com/ios-filled/50/000000/brick-wall.png"/>
-<h3>שיקום מעטפת בניין</h3>
-</div>
-<div class="service-card">
-<img alt="עבודות צבע" src="https://img.icons8.com/ios-filled/50/000000/roofing.png"/>
-<h3>עבודות צבע</h3>
-</div>
-</div>
-</section><section style="padding: 40px; text-align: center; background-color: #fdfdfd;"><h2 id="about" style="font-size: 28px; color: #222; margin-bottom: 30px;">אודות</h2><p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">נינג'ה עבודות בגובה הוקמה מתוך שליחות לספק פתרונות איכותיים לעבודה בגובה תוך שמירה על סטנדרטים מחמירים של בטיחות ומקצועיות.</p><p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">עם ניסיון של למעלה מ-5 שנים, אנו נותנים מענה לבנייני מגורים, מוסדות, משרדים ופרויקטים מיוחדים – הכול עם מגע אנושי, שירות אישי וציוד מתקדם.</p><p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px; color: #444;">הצוות שלנו מוסמך ומורשה לעבודה בגובה, ויחד איתכם נבצע כל פרויקט בצורה הטובה והבטוחה ביותר.</p><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 900px; margin: 30px auto 0;"><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>צוות מקצועי ומנוסה</span></div><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>ביטוח מקיף ומלא</span></div><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>מחירים תחרותיים</span></div><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>ציוד בטיחות מתקדם</span></div><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>זמינות 24/7</span></div><div style="flex: 1 1 250px; display: flex; align-items: center; font-size: 16px; color: #333;"><span style="color: #007bff; margin-left: 8px; font-size: 20px;">✔️</span><span>אחריות מלאה על העבודה</span></div></div></section>
-
-
-<section id="contact" style="padding: 40px; text-align: center; background-color:#fdfdfd;"><h2 style="font-size: 32px; margin-bottom: 10px; color: #222; font-weight: bold;">צור קשר</h2><p style="font-size: 18px; color: #666; margin-bottom: 40px;">נשמח לעמוד לשירותכם ולספק הצעת מחיר מותאמת אישית לפרויקט שלכם</p><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1100px; margin: auto; text-align: right;"><div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 20px;"><div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;"><div style="display: flex; align-items: center; gap: 15px;"><span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">📞</span><div><strong>טלפון</strong><br/>0506335366<br/><small>אחיה עמוסי</small></div></div></div><div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;"><div style="display: flex; align-items: center; gap: 15px;"><span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">✉️</span><div><strong>אימייל</strong><br/>ahiaamosis@gmail.com<br/><small>אחיה עמוסי</small></div></div></div><div style="border: 1px solid #ccc; border-radius: 12px; padding: 20px; background: #fff; font-size: 16px;"><div style="display: flex; align-items: center; gap: 15px;"><span style="font-size: 28px; background: #007bff; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">⏰</span><div><strong>שעות פעילות</strong><br/>ראשון - חמישי: 07:00 - 18:00<br/><small>זמינות 24/7 ללקוחות חירום</small></div></div></div></div><div style="flex: 1 1 400px;"><form action="https://formspree.io/f/mldldjqa" method="POST" style="display: grid; gap: 16px;"><label>שם מלא</label><input name="name" placeholder="הכנס את שמך המלא" required="True" style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="text"/><label>טלפון</label><input name="phone" placeholder="050-123-4567" required="True" style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="tel"/><label>אימייל</label><input name="email" placeholder="example@email.com" required="True" style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="email"/><label>סוג השירות</label><input name="service_type" placeholder="צביעת חזית, עבודות בנייה, תחזוקה..." required="True" style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; width: 100%;" type="text"/><label>פרטים נוספים</label><textarea name="details" placeholder="תאר את הפרויקט שלך - גובה המבנה, סוג העבודה, לוח זמנים..." required="True" style="padding: 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; min-height: 100px;"></textarea><button style="padding: 14px; background-color: #007bff; color: white; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;" type="submit">שלח בקשה</button></form></div></div></section>
-
-<div class="floating-buttons">
-<a href="https://wa.me/972506335366?text=שלום%20אחיה%2C%20אני%20מעוניין%20בשירותי%20עבודות%20בגובה" target="_blank" title="שלח וואטסאפ"><i class="fab fa-whatsapp"></i></a>
-<a href="tel:0506335366" title="התקשר עכשיו"><i class="fas fa-phone"></i></a>
-<a href="mailto:ahiaamosis@gmail.com?subject=פנייה%20מהאתר%20נינג'ה%20עבודות%20בגובה&amp;body=שלום%20אחיה%2C%20אני%20מעוניין%20לקבל%20מידע%20נוסף%20על%20השירותים%20שלכם." title="שלח מייל"><i class="fas fa-envelope"></i></a>
-</div>
-<footer style="text-align: center; padding: 20px; background-color: #eeeeee; color: #555; margin-top: 40px; font-size: 14px;">© 2025 נינג'ה עבודות בגובה | אחיה עמוסי | 050-6335366 | ahiaamosis@gmail.com</footer>
-<script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('active');
-  }
-</script>
+  <!-- כאן תדביק את הסקריפט של רכיב הנגישות (אפשרות 1) שתקבל מהספק -->
+  <!-- <script src="..."></script> -->
 
 </body>
 </html>
